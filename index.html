@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador Automático de Discursos de Esquerda</title>
+    <style>
+        div#resultadofinal{
+            font: italic 18px Arial;
+            color: rgb(255, 217, 0);
+            background-color: brown;
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 75%;
+            padding: 25px 25px 25px 25px;
+            text-shadow: black 1px 1px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerador Automático de Discursos de Esquerda</h1>
+    <div>
+        <p id="total">...</p>
+    </div>
+
+    <input type="text" id="numero" value="3333" onkeyup="verifica()">
+    <input type="button" value="Gerar!" id="botao" onclick="exibir()">
+
+    <div id="resultadofinal"></div>
+
+    <script>
+        var opressao = ["o genocídio contra a juventude negra","o racismo estrutural", "o machismo onipresente", "a transfobia generalizada", "o ódio e preconceito aos pretos periféricos", "a homofobia que mata todos os dias", "a marginalização das lésbicas empobrecidas e invisibilizadas", "a agressão cotidiana a mulheres, gays e negros", "a ditadura de um padrão branco, machista, pequeno-burguês e heterossexual"]
+
+        var vitima = ["mulheres negras", "as populações indígenas", "as profissionais do sexo invisibilizadas pelo sistema", "as travestis de origem nortista", "reeducandos de um sistema penal que encarcera pretos", "homossexuais em situação de vulnerabilidade", "os não-binários e sem-gêneros", "mulheres trans, operários explorados e jovens pardos da periferia", "os gordos, os pretos, os sem-gênero e os favelizados"]
+
+        var cenarioopressor = ["capitalismo sistêmico sufocante","racismo e transfobia generalizados", "opressão sobre os trabalhadores pobres", "massacre da população periférica", "subjugação da mulher, do preto e dos homossexuais", "homofobia generalizada", "assassinato de jovens periféricos que atuam no comércio de narcóticos", "imposição de uma hétero-normatividade branco-burguesa", "neoliberalismo excludente e discriminatório"]
+
+        var politicaredentora = ["o empoderamento de mulheres negras", "o fim das desigualdades", "a inclusão dos vulneráveis e excluídos", "a libertação através da revolução", "uma atitude de orgulho e resistência da parte dos oprimidos", "a derrubada do patriarcado", "a diversidade e a representatividade", "o trans-feminismo negro", "um socialismo eco-feminista"]
+
+        
+        
+        var vez = 0
+
+        
+
+        function exibir(){
+            
+            var exibe = document.getElementById("resultadofinal")
+            exibe.innerText = ""
+
+            var numero = document.getElementById("numero").value
+            var n1, n2, n3, n4
+            
+            n1 = Number(numero.substr(0,1))
+            n2 = Number(numero.substr(1,1))
+            n3 = Number(numero.substr(2,1))
+            n4 = Number(numero.substr(3,1))
+
+            
+            var estruturatextual = [`É preciso que se denuncie ${opressao[n1-1]}, que se dá também contra ${vitima[n2-1]}, em um contexto de ${cenarioopressor[n3-1]}, apontando como solução ${politicaredentora[n4-1]}, que minará as bases da velha sociedade e nos trará um mundo novo.`,`É inegável que vivemos num cenário de ${cenarioopressor[n3-1]} que faz como vítima também ${vitima[n2-1]}. Nos entristece ${opressao[n1-1]}, mas cremos que no futuro haverá ${politicaredentora[n4-1]}, o que libertará a todes e todxs!`,`Somente quando houver ${politicaredentora[n4-1]} é que poderemos falar em um mundo melhor. Pois, afinal, como construir um futuro de igualdade se ainda existe ${opressao[n1-1]} e que aflige também ${vitima[n2-1]}. O que não nos surpreende, já que vivemos em um mundo de ${cenarioopressor[n3-1]}.`,`Já passou da hora de escancarar ${opressao[n1-1]}, sem deixar para trás ${vitima[n2-1]}, que também sofrem nessa conjuntura de ${cenarioopressor[n3-1]}. Sempre lutando para que ${politicaredentora[n4-1]} nos traga um futuro melhor!`,`Basta! A desconstrução de uma mentalidade vigente que embasa e dá subsídio para ${opressao[n1-1]} é tarefa urgente, se nos preocupamos com o futuro das próximas gerações; ${vitima[n2-1]} não podem mais esperar; ${cenarioopressor[n3-1]}, isso afeta a todxs! Por isso gritamos: é preciso ${politicaredentora[n4-1]}, e com urgência!`, `Os poderosos não querem reconhecer que ${politicaredentora[n4-1]} nos colocará em um novo patamar. Uma nova sociedade, que jogue fora seu passado de ${cenarioopressor[n3-1]} e que acabe com ${opressao[n1-1]}, buscando a representatividade para ${vitima[n2-1]}.`,`O sistema que esmaga ${vitima[n2-1]}, enquanto privilegia o homem, o branco e o heterossexual, gerando e disseminando ${opressao[n1-1]}, é sintoma de uma sociedade que se assenta em ${cenarioopressor[n3-1]}. Por isso as minorias e oprimidos devem se unir, buscando ${politicaredentora[n4-1]} para que os que sofrem tenham voz e vez.`,`O passado oprimiu ${vitima[n2-1]} para dar lugar a um presente de ${cenarioopressor[n3-1]} em que vemos ${opressao[n1-1]}. Por isso devemos concentrar nossos esforços na construção do futuro, onde ${politicaredentora[n4-1]} nos leve a um novo modelo de sociedade.`,`Nunca foi tão escancarado o cenário diante de nós, em que ${opressao[n1-1]} acontece sob o silêncio das estruturas de poder; estruturas que também vitimam ${vitima[n2-1]}, em um quadro de ${cenarioopressor[n3-1]}. Até quando vamos ficar esperando de braços cruzados ${politicaredentora[n4-1]}?`]
+            
+            exibe.innerText = estruturatextual[vez]
+            //alert(estruturatextual.length)
+            vez < (estruturatextual.length - 1) ? vez++ : vez = 0
+            
+            var total = document.getElementById("total")
+            var somatoria
+       
+            somatoria = opressao.length * cenarioopressor.length * vitima.length * politicaredentora.length * estruturatextual.length
+
+            total.innerText = `Atualmente são ${somatoria} discursos gerados automaticamente.`  
+        }
+        
+    </script>
+</body>
+</html>
